@@ -24,7 +24,33 @@
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
   }
-
+/* IMAGE MODAL (LIGHTBOX) */
+  .modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(15, 23, 42, 0.85); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+  .modal-content {
+    position: relative; max-width: 90vw; max-height: 90vh;
+    transform: scale(0.95); transition: transform 0.3s ease;
+  }
+  .modal-overlay.active .modal-content { transform: scale(1); }
+  .modal-content img {
+    max-width: 100%; max-height: 90vh; border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); object-fit: contain;
+    background: white; padding: 10px;
+  }
+  .modal-close {
+    position: absolute; top: -16px; right: -16px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #fff; color: var(--navy); font-size: 20px;
+    border: none; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: bold;
+  }
+  .zoomable { cursor: zoom-in; }
   /* TOP BANNER */
   .top-banner{background:var(--navy);color:#fff;text-align:center;padding:8px 14px;font-size:12px;font-weight:600;letter-spacing:.02em;}
 
@@ -356,11 +382,11 @@
 <script>
   const WHATSAPP_NUMBER = '251900000000';
 
-  const products = [
-    { id: 'chint-1p', name: 'CHNT Breaker 1-Pole (10A-32A)', cat: 'Switches', price: '300 ETB', bulk: '295 ETB/ud (Carton of 180)', icon: 'switch', img: 'img/breaker1.jpg', featured: true },
-    { id: 'aqafi', name: 'Color Aqafi Ceiling Fitting', cat: 'Lighting', price: '180 ETB', bulk: '160 ETB/ud (Carton of 125)', icon: 'bulb', img: 'img/aqafi.jpg', featured: true },
-    { id: 'kw-meter', name: 'Digital Killowatt Meter', cat: 'Meters', price: '3,000 ETB', bulk: '2,500 ETB/ud (Carton of 100)', icon: 'meter', img: 'img/meter.jpg', featured: true },
-    { id: 'chint-3p', name: 'CHNT Breaker 3-Pole', cat: 'Switches', price: 'Ask for price', bulk: 'Wholesale available', icon: 'switch', img: 'img/breaker3.jpg', featured: true },
+ const products = [
+    { id: 'chint-1p', name: 'CHNT Breaker 1-Pole (10A-32A)', cat: 'Switches', price: '300 ETB', bulk: '295 ETB/ud (Carton of 180)', icon: 'switch', img: 'breaker1.jpg', featured: true },
+    { id: 'aqafi', name: 'Color Aqafi Ceiling Fitting', cat: 'Lighting', price: '180 ETB', bulk: '160 ETB/ud (Carton of 125)', icon: 'bulb', img: 'aqafi.jpg', featured: true },
+    { id: 'kw-meter', name: 'Digital Killowatt Meter', cat: 'Meters', price: '3,000 ETB', bulk: '2,500 ETB/ud (Carton of 100)', icon: 'meter', img: 'meter.jpg', featured: true },
+    { id: 'chint-3p', name: 'CHNT Breaker 3-Pole', cat: 'Switches', price: 'Ask for price', bulk: 'Wholesale available', icon: 'switch', img: 'breaker3.jpg', featured: true },
    
   ];
 
@@ -407,8 +433,7 @@
       <div class="f-card">
         <div class="f-img">
           <span class="f-flag">Featured</span>
-          ${p.img ? `<img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:contain; padding:12px;">` : svgIcon(p.icon)}
-        </div>
+          ${p.img ? `<img src="${p.img}" alt="${p.name}" class="zoomable" style="width:100%; height:100%; object-fit:contain; padding:12px;">` : svgIcon(p.icon)}        </div>
         <div class="f-body">
           <span class="f-cat">${p.cat}</span>
           <div class="f-name">${p.name}</div>
@@ -642,6 +667,40 @@
   renderFeatured();
   render();
   updateOrderUI();
+</script>
+<!-- Modal para ampliar imagen -->
+<div class="modal-overlay" id="imageModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img src="" id="modalImg" alt="Enlarged view">
+  </div>
+</div>
+
+<script>
+  /* ---- Image Lightbox Modal Logic ---- */
+  const imageModal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalClose = document.getElementById('modalClose');
+
+  // Abrir imagen al hacer clic
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('zoomable')) {
+      modalImg.src = e.target.src;
+      imageModal.classList.add('active');
+    }
+  });
+
+  // Cerrar desde la X
+  modalClose.addEventListener('click', () => {
+    imageModal.classList.remove('active');
+  });
+
+  // Cerrar al hacer clic fuera de la foto
+  imageModal.addEventListener('click', (e) => {
+    if (e.target === imageModal) {
+      imageModal.classList.remove('active');
+    }
+  });
 </script>
 </body>
 </html>
