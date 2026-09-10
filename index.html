@@ -330,7 +330,7 @@
 </footer>
 
 <a href="https://wa.me/251900000000" target="_blank" rel="noopener" class="wa-float" aria-label="Order via WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.34.68 4.52 1.86 6.36L4 29l7.83-1.8a11.94 11.94 0 0 0 4.18.76h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3Zm0 21.86c-1.5 0-2.96-.4-4.24-1.15l-.3-.18-4.65 1.07 1.1-4.53-.2-.31a9.83 9.83 0 0 1-1.53-5.25c0-5.44 4.43-9.87 9.87-9.87 2.64 0 5.12 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.45-4.43 9.88-9.92 9.88Zm5.4-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.15-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.35Z"/></svg>
+  <svg viewBox="0 0 32 32"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.34.68 4.52 1.86 6.36L4 29l7.83-1.8a11.94 11.94 0 0 0 4.18.76h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3Zm0 21.86c-1.5 0-2.96-.4-4.24-1.15l-.3-.18-4.65 1.07 1.1-4.53-.2-.31a9.83 9.83 0 0 1-1.53-5.25c0-5.44 4.43-9.87 9.87-9.87 2.64 0 5.12 1.03 6.98 2.9a9.78 9.78 0 0 1 2.89 6.97c0 5.45-4.43 9.88-9.92 9.88Zm5.4-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.15-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.12-.27-.2-.57-.35Z"/></svg>
 </a>
 
 <!-- Order tray (mental cart, no backend) -->
@@ -357,22 +357,11 @@
   const WHATSAPP_NUMBER = '251900000000';
 
   const products = [
-    { id: 'meter-1', name: 'Digital Electric Meter 220V', cat: 'Meters', price: 'Ask for price', icon: 'meter', featured: true },
-    { id: 'meter-2', name: 'Single Phase Energy Meter', cat: 'Meters', price: '$45', icon: 'meter' },
-    { id: 'meter-3', name: 'Three Phase Prepaid Meter', cat: 'Meters', price: 'Ask for price', icon: 'meter', featured: true },
-    { id: 'meter-4', name: 'Smart Digital Sub-Meter', cat: 'Meters', price: '$38', icon: 'meter' },
-    { id: 'switch-1', name: '2-Gang Wall Switch', cat: 'Switches', price: '$3', icon: 'switch' },
-    { id: 'switch-2', name: 'Waterproof Outdoor Switch', cat: 'Switches', price: '$6', icon: 'switch' },
-    { id: 'switch-3', name: 'Dimmer Switch 500W', cat: 'Switches', price: '$9', icon: 'switch' },
-    { id: 'switch-4', name: 'Industrial Isolator Switch', cat: 'Switches', price: 'Ask for price', icon: 'switch', featured: true },
-    { id: 'bulb-1', name: 'LED Bulb 12W E27', cat: 'Lighting', price: '$2', icon: 'bulb' },
-    { id: 'bulb-2', name: 'LED Flood Light 50W', cat: 'Lighting', price: '$14', icon: 'bulb', featured: true },
-    { id: 'bulb-3', name: 'Ceiling Panel Light', cat: 'Lighting', price: '$11', icon: 'bulb' },
-    { id: 'bulb-4', name: 'Street Light Fixture 100W', cat: 'Lighting', price: 'Ask for price', icon: 'bulb' },
-    { id: 'cable-1', name: 'Copper Cable 2.5mm² (100m)', cat: 'Cables', price: '$52', icon: 'cable' },
-    { id: 'cable-2', name: 'Armoured Cable 4mm² (100m)', cat: 'Cables', price: '$88', icon: 'cable', featured: true },
-    { id: 'cable-3', name: 'Flexible Cable 1.5mm² (100m)', cat: 'Cables', price: '$34', icon: 'cable' },
-    { id: 'cable-4', name: 'Extension Cable Reel 20m', cat: 'Cables', price: '$16', icon: 'cable' },
+    { id: 'chint-1p', name: 'CHNT Breaker 1-Pole (10A-32A)', cat: 'Switches', price: '300 ETB', bulk: '295 ETB/ud (Carton of 180)', icon: 'switch', img: 'img/breaker1.jpg', featured: true },
+    { id: 'aqafi', name: 'Color Aqafi Ceiling Fitting', cat: 'Lighting', price: '180 ETB', bulk: '160 ETB/ud (Carton of 125)', icon: 'bulb', img: 'img/aqafi.jpg', featured: true },
+    { id: 'kw-meter', name: 'Digital Killowatt Meter', cat: 'Meters', price: '3,000 ETB', bulk: '2,500 ETB/ud (Carton of 100)', icon: 'meter', img: 'img/meter.jpg', featured: true },
+    { id: 'chint-3p', name: 'CHNT Breaker 3-Pole', cat: 'Switches', price: 'Ask for price', bulk: 'Wholesale available', icon: 'switch', img: 'img/breaker3.jpg', featured: true },
+   
   ];
 
   const icons = {
@@ -418,12 +407,15 @@
       <div class="f-card">
         <div class="f-img">
           <span class="f-flag">Featured</span>
-          ${svgIcon(p.icon)}
+          ${p.img ? `<img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:contain; padding:12px;">` : svgIcon(p.icon)}
         </div>
         <div class="f-body">
           <span class="f-cat">${p.cat}</span>
           <div class="f-name">${p.name}</div>
-          <div class="f-price">${p.price}</div>
+          <div style="margin-bottom:8px;">
+            <span style="font-size:14px; font-weight:700; color:var(--navy);">${p.price}</span>
+            <span style="display:block; font-size:11px; color:#1CAE55; margin-top:2px; font-weight:600;">📦 Bulk: ${p.bulk}</span>
+          </div>
           <a class="f-cta" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWaMessage(p, 1))}">
             Ask on WhatsApp
           </a>
@@ -462,12 +454,15 @@
       <div class="card" data-id="${p.id}">
         <div class="card-img">
           <span class="stock-tag">In Stock</span>
-          ${svgIcon(p.icon)}
+          ${p.img ? `<img src="${p.img}" alt="${p.name}" style="width:100%; height:100%; object-fit:contain; padding:12px;">` : svgIcon(p.icon)}
         </div>
         <div class="card-body">
           <span class="card-cat">${p.cat}</span>
           <div class="card-name">${p.name}</div>
-          <div class="card-price">${p.price}</div>
+          <div style="margin-bottom:6px;">
+            <span style="font-size:13.5px; font-weight:700; color:var(--navy);">${p.price}</span>
+            <span style="display:block; font-size:10.5px; color:#1CAE55; margin-top:2px; font-weight:600;">📦 Bulk: ${p.bulk}</span>
+          </div>
           <div class="qty-row">
             <span class="qty-label">Quantity</span>
             <div class="qty-stepper">
